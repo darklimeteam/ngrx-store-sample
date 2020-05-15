@@ -1,0 +1,44 @@
+[
+  {
+    "id": 312411,
+    "message": "message 1",
+    "status": "new",
+    "createdAt": "2019-11-17T13:07:05.277Z"
+  },
+  {
+    "id": 312412,
+    "message": "message 2",
+    "status": "clarification",
+    "createdAt": "2019-11-17T14:07:05.277Z"
+  },
+  {
+    "id": 312413,
+    "message": "message 3",
+    "status": "rejection",
+    "createdAt": "2019-11-17T15:07:05.277Z"
+  },
+  {
+    "id": 312414,
+    "message": "message 4",
+    "status": "implementation",
+    "createdAt": "2019-11-17T16:07:05.277Z"
+  },
+  {
+    "id": 312415,
+    "message": "message 5",
+    "status": "draft",
+    "createdAt": "2019-11-17T17:07:05.277Z"
+  },
+  {
+    "id": 312416,
+    "message": "message 6",
+    "status": "review_moderator",
+    "createdAt": "2019-11-17T18:07:05.277Z"
+  },
+  {
+    "id": 312417,
+    "message": "message 7",
+    "status": "review_evaluator",
+    "createdAt": "2019-11-17T19:07:05.277Z"
+  }
+]

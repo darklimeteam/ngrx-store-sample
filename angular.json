@@ -122,6 +122,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "pwa-angular9"
+    }
+  },
+  "defaultProject": "pwa-angular9",
+  "cli": {
+    "analytics": "0574d7ea-1db1-4f67-8a4f-a964d5c9cc1d"
+  }
 }
