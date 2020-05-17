@@ -8,51 +8,10 @@ import { Observable, of } from 'rxjs';
 // App
 import { environment } from '../../../environments/environment';
 import * as notification from '../data/notification.json';
-import * as setting from '../data/setting.json';
+import * as settings from '../data/settings.json';
 
 const urls = [
-  /*
-{
-   method: 'POST',
-   url: 'login',
-   json: login,
- },
- {
-   method: 'POST',
-   url: 'check',
-   json: check,
- },
- {
-    method: 'POST',
-   url: 'logout',
-    json: logout,
- },
- {
-   method: 'GET',
-   url: 'department',
-   json: department,
- },
- {
-   method: 'GET',
-   url: 'evaluator',
-   json: evaluator,
- },
- {
-   method: 'GET',
-   url: 'category',
-   json: category,
- },
-  {
-    method: 'GET',
-    url: 'company',
-    json: company,
-  },
-  {
-    method: 'GET',
-    url: 'executor',
-    json: executor,
-  },
-   */
+
   {
     method: 'GET',
     url: 'notification',
@@ -60,41 +19,10 @@ const urls = [
   },
   {
     method: 'GET',
-    url: 'admin/setting',
-    json: setting,
+    url: 'admin/settings',
+    json: settings,
   },
-  // {
-  //   method: 'GET',
-  //   url: 'admin/category',
-  //   json: category,
-  // },
-  /*
-  {
-    method: 'GET',
-    url: 'idea',
-    json: idea,
-  },
-  {
-    method: 'POST',
-    url: 'idea',
-    json: newIdea,
-  },
-  {
-    method: 'GET',
-    url: 'idea/1',
-    json: { default: idea[0] },
-  },
-  {
-    method: 'GET',
-    url: 'idea/2',
-    json: { default: idea[1] },
-  },
-  {
-    method: 'GET',
-    url: 'idea/3',
-    json: { default: idea[2] },
-  },
-  */
+
 ];
 
 @Injectable()

@@ -1,11 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+// Lib
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+
+// App
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotificationService } from './core/services/notification.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpMockRequestInterceptor } from './mock/interceptors/http-mock-request-interceptor';
+import { reducerSettings } from './core/store/settings/settings.reducer';
+import { SettingsEffects } from './core/store/settings/settings.effects';
 
 @NgModule({
   declarations: [
@@ -14,7 +22,10 @@ import { HttpMockRequestInterceptor } from './mock/interceptors/http-mock-reques
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({ root: reducerSettings }),
+    [StoreDevtoolsModule.instrument({ maxAge: 50 })],
+    EffectsModule.forRoot([SettingsEffects]),
   ],
   providers: [NotificationService,
     {
