@@ -13,7 +13,8 @@ export const initialSettingsState: SettingsState = {
 const settingsReducer = createReducer(
   initialSettingsState,
   on(SettingsActions.settingsLoadSuccess, (state, action) => {
-    console.log(action.settings); return {settings: action.settings};
+    console.log('from reducer', action.settings);
+    return { settings: action.settings };
   }));
 
 

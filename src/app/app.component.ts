@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 // App
-import { NotificationService } from './core/services/notification.service';
-import { SettingsService } from './core/services/settings.service';
-import { SettingsActions } from './core/store/settings/settings.actions';
+import { settingsLoad } from './core/store/settings/settings.actions';
+import { SettingsState } from './core/store/settings/settings.reducer';
+import { Store, select } from '@ngrx/store';
+import { selectSettings } from './core/store/settings/settings.selector';
+import { Observable } from 'rxjs';
+import { SettingsResponse } from './core/models/settings.model';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +16,16 @@ import { SettingsActions } from './core/store/settings/settings.actions';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private notificationService: NotificationService,
-              private settingsService: SettingsService,
-              private store: SettingsActions
-    ) {}
+  public settings$: Observable<SettingsResponse>;
+
+  constructor(private store: Store<SettingsState>) {
+    this.settings$ = this.store.pipe(select(selectSettings), tap(val => console.log('from app component', val)));
+  }
   title = 'pwa-angular9';
 
   ngOnInit() {
-    this.store.settingsLoadDispatch();
-    this.notificationService.getNotifications().subscribe(nots => console.log(nots));
-    this.settingsService.getSettings().subscribe(set => console.log(set));
+
+    this.store.dispatch(settingsLoad());
+
   }
 }

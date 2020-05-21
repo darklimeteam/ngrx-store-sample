@@ -13,7 +13,7 @@ export class SettingsEffects {
     ofType('[Settings] Load'),
     mergeMap(() => this.settingsService.getSettings()
       .pipe(
-        tap(settings => console.log(settings)),
+        tap(settings => console.log('from productLoad effect', settings)),
         map(settings => SettingsActions.settingsLoadSuccess({ settings })),
       ))
   )

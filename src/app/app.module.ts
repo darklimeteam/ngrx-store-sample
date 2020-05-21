@@ -23,7 +23,7 @@ import { SettingsEffects } from './core/store/settings/settings.effects';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({ root: reducerSettings }),
+    StoreModule.forRoot({settings: reducerSettings}),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
     EffectsModule.forRoot([SettingsEffects]),
   ],
