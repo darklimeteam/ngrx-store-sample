@@ -25,3 +25,16 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+## Store-1
+
+First step: create actions, effect, reducer, selector for simple json structure:
+`settings: {
+  "theme": 11,
+  "categories": [1,2,3,4,5,6,8],
+  "language": "eng"
+}`
+
+Result: App component `OnInit` ----> Load action is dispatched ----> Data are sent from BE ----> Data is put to ngrx/store
+        Selector is subscribed to (ngrx/store).settings
