@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 // Libs
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 // App
 import { SettingsResponse } from '../models/settings.model';
@@ -16,5 +16,11 @@ export class SettingsService {
 
   public getSettings(): Observable<SettingsResponse> {
     return this.http.get<SettingsResponse>(`admin/settings`);
+  }
+
+  public updateSettings(settings: SettingsResponse): Observable<SettingsResponse> {
+    // TODO POST request to server
+    // return this.http.post<SettingsResponse>(`admin/settings`, settings);
+    return of(settings);
   }
 }

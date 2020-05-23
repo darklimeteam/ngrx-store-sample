@@ -5,16 +5,27 @@ import { EMPTY } from 'rxjs';
 import { map, mergeMap, catchError, tap } from 'rxjs/operators';
 import * as SettingsActions from './settings.actions';
 import { SettingsService } from '../../services/settings.service';
+import { SettingsResponse } from '../../models/settings.model';
 
 @Injectable()
 export class SettingsEffects {
 
-  productLoad$ = createEffect(() => this.actions$.pipe(
+  settingsLoad$ = createEffect(() => this.actions$.pipe(
     ofType('[Settings] Load'),
     mergeMap(() => this.settingsService.getSettings()
       .pipe(
-        tap(settings => console.log('from productLoad effect', settings)),
+        tap(settings => console.log('from settingsLoad effect', settings)),
         map(settings => SettingsActions.settingsLoadSuccess({ settings })),
+      ))
+  )
+  );
+
+  updateSettings$ = createEffect(() => this.actions$.pipe(
+    ofType('[Settings] Update'),
+    mergeMap((payload: {settings: SettingsResponse}) => this.settingsService.updateSettings(payload.settings)
+      .pipe(
+        tap(settings => console.log('from updateSettings effect', settings)),
+        map(settings => SettingsActions.updateSettingsSucess({ settings })),
       ))
   )
   );

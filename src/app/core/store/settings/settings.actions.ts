@@ -16,14 +16,13 @@ export const settingsLoadFail = createAction(
 );
 
 
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class SettingsActions {
-//   constructor(private store$: Store<SettingsState>) {}
+export const updateSettings = createAction(
+  '[Settings] Update',
+  props<{settings: SettingsResponse}>()
+);
 
-//   public settingsLoadDispatch(): void {
-//     this.store$.dispatch(settingsLoad());
-//   }
+export const updateSettingsSucess = createAction(
+  '[Settings] Update Success',
+  props<{settings: SettingsResponse}>()
+);
 
-// }
