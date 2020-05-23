@@ -38,3 +38,9 @@ First step: create actions, effect, reducer, selector for simple json structure:
 
 Result: App component `OnInit` ----> Load action is dispatched ----> Data are sent from BE ----> Data is put to ngrx/store
         Selector is subscribed to (ngrx/store).settings
+
+## Store-2
+
+Second step: update action, effect, reducer for simple json structure was added.
+
+Result: App component text area JSON could be modified by user ----> Save button allows to change settings data in ngrx/store ----> Selector automatically updates data in the App component
