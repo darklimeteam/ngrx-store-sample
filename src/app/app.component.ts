@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { SettingsResponse } from './core/models/settings.model';
 import { map, tap } from 'rxjs/operators';
 import { RootState } from './core/store';
+import { selectMeta } from './core/store/meta/meta.selector';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,15 @@ export class AppComponent implements OnInit {
 
   public settings$: Observable<SettingsResponse>;
   public settings: SettingsResponse | string;
+  public loading$: Observable<boolean>;
 
   constructor(private store: Store<RootState>) {
     this.settings$ = this.store.pipe(select(selectSettings),
       tap(val => console.log('from app component', val)))
       .pipe(tap(settings => this.settings = JSON.stringify(settings)));
+    this.loading$ = this.store.pipe(select(selectMeta),
+      tap(val => console.log('from app component meta', val)))
+      .pipe(map(meta => meta.loading));
   }
   title = 'pwa-angular9';
 

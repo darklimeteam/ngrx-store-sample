@@ -26,3 +26,8 @@ export const updateSettingsSucess = createAction(
   props<{settings: SettingsResponse}>()
 );
 
+export const updateSettingsFail = createAction(
+  '[Settings] Update Fail',
+  props<{error: string }>()
+);
+
