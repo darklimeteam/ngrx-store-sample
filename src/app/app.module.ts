@@ -12,8 +12,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotificationService } from './core/services/notification.service';
 import { HttpMockRequestInterceptor } from './mock/interceptors/http-mock-request-interceptor';
-import { reducerSettings } from './core/store/settings/settings.reducer';
 import { SettingsEffects } from './core/store/settings/settings.effects';
+import { reducers } from './core/store';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { SettingsEffects } from './core/store/settings/settings.effects';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({settings: reducerSettings}),
+    StoreModule.forRoot(reducers),
     [StoreDevtoolsModule.instrument({ maxAge: 50 })],
     EffectsModule.forRoot([SettingsEffects]),
   ],

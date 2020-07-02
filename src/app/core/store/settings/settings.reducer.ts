@@ -3,21 +3,21 @@ import * as SettingsActions from './settings.actions';
 import { SettingsResponse } from '../../models/settings.model';
 
 export interface SettingsState {
-  settings: SettingsResponse;
+  theme: number;
+  categories: Array<number>;
+  language: string;
 }
 
 export const initialSettingsState: SettingsState = {
-  settings: null,
+  theme: null,
+  categories: [],
+  language: null
 };
 
-const settingsReducer = createReducer(
+export const settingsReducer = createReducer(
   initialSettingsState,
   on(SettingsActions.settingsLoadSuccess, (state, action) => {
     console.log('from reducer', action.settings);
-    return { settings: action.settings };
+    return action.settings;
   }));
 
-
-export function reducerSettings(state: SettingsState, action: Action) {
-  return settingsReducer(state, action);
-}

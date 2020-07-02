@@ -1,10 +1,10 @@
 // App
 import { SettingsState } from '../settings/settings.reducer';
 import { createSelector } from '@ngrx/store';
+import { RootState } from '..';
 
-export const selectRootState = (state: SettingsState) => state;
+export const selectRootState = (state: RootState) => state;
 export const selectSettings = createSelector(
   selectRootState,
-  (state: SettingsState) => state.settings
+  (state: RootState) => state.settings
 );
-
