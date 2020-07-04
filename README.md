@@ -41,6 +41,12 @@ Result: App component `OnInit` ----> Load action is dispatched ----> Data are se
 
 ## Store-2
 
-Second step: update action, effect, reducer for simple json structure was added.
+Second step: update action, effect, reducer for simple json structure were added.
 
 Result: App component text area JSON could be modified by user ----> Save button allows to change settings data in ngrx/store ----> Selector automatically updates data in the App component
+
+## Store-3
+
+Third step: loading and loaded flags were added to track status and show loader when needed
+
+Result: `metaReducer` changes value (true/false) of loading and loaded flags. `selectMeta` selector observes flag value and initiates loader showing.
